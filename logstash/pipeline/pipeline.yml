@@ -1,0 +1,2 @@
+- pipeline.id: dragonfly_suricata
+  path.config: "/usr/share/logstash/config/synlite_suricata/conf.d/*.conf"
