@@ -26,3 +26,8 @@ The following properties in the nginx configuration can be changed by setting en
 * `CACHE_KEY_ZONE` - cache keys zone; defaults to `faas_cache`
 * `CACHE_TTL` - cache item time-to-live; defaults to `24h`
 * `MAX_CACHE_SIZE` - size of cache on disk; defaults to `1g`
+
+For example, to run nginx with cache ttl of 30 minutes, run with the following command
+```bash
+$ docker run -p 80:80 -e "CACHE_TTL=30m" --network=func_functions --name faas_proxy faas-nginx-proxy
+```
