@@ -4,7 +4,7 @@ Docker container to proxy and cache OpenFaaS functions with `nginx. The containe
 ## Installation
 Build the image from source 
 ```bash
-$ git clone https://github.com/satie/dockerfiles.git
+$ git clone https://ga.jarmansgap.com/ss/dockerfiles.git
 $ cd dockerfiles/faas-nginx-proxy
 $ docker build -t faas-nginx-proxy .
 ```
