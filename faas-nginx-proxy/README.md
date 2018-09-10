@@ -1,10 +1,10 @@
 # faas-nginx-proxy
-Docker container to proxy and cache OpenFaaS functions with `nginx. The container receives request on port 80 and forwards them to the function gateway running on 8080. It also caches function responses for 24 hours as a default. This cache time-to-live (TTL) can be modified by setting an environment variable when running the container.
+Docker container to proxy and cache OpenFaaS functions with `nginx`. The container receives request on port 80 and forwards them to the function gateway running on 8080. It also caches function responses for 24 hours as a default. This cache time-to-live (TTL) can be modified by setting an environment variable when running the container.
 
 ## Installation
 Build the image from source 
 ```bash
-$ git clone https://ga.jarmansgap.com/ss/dockerfiles.git
+$ git clone https://github.com/satie/dockerfiles.git
 $ cd dockerfiles/faas-nginx-proxy
 $ docker build -t faas-nginx-proxy .
 ```
