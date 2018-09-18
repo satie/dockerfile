@@ -20,14 +20,15 @@ services:
         limits:
           memory: 1G  
   graylog:
-    image: graylog/graylog:2.4.0-1
+    image: graylog/graylog:2.4.6-1
     volumes:
       - graylog_journal:/usr/share/graylog/data/journal
       - ./config:/usr/share/graylog/data/config
+      - ./content-pack/service-names-port-numbers.csv:/etc/graylog/server/service-names-port-numbers.csv
     environment:
       - GRAYLOG_PASSWORD_SECRET=${PASSWORD_SECRET}
       - GRAYLOG_ROOT_PASSWORD_SHA2=${PASSWORD_SHA256}
-      - GRAYLOG_WEB_ENDPOINT_URI=http://127.0.0.1:9000/api
+      - GRAYLOG_WEB_ENDPOINT_URI=http://0.0.0.0:9000/api
     depends_on:
       - mongo
       - elasticsearch
