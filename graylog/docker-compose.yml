@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   mongo:
     image: mongo:3
@@ -19,12 +19,15 @@ services:
       resources:
         limits:
           memory: 1G  
+    ports:
+      - 9200:9200
   graylog:
     image: graylog/graylog:2.4.6-1
     volumes:
       - graylog_journal:/usr/share/graylog/data/journal
       - ./config:/usr/share/graylog/data/config
       - ./content-pack/service-names-port-numbers.csv:/etc/graylog/server/service-names-port-numbers.csv
+      - ./geolite2-city/GeoLite2-City.mmdb:/etc/graylog/server/GeoLite2-City.mmdb
     environment:
       - GRAYLOG_PASSWORD_SECRET=${PASSWORD_SECRET}
       - GRAYLOG_ROOT_PASSWORD_SHA2=${PASSWORD_SHA256}
@@ -53,3 +56,7 @@ volumes:
     driver: local
   graylog_journal:
     driver: local
+
+networks:
+  default:
+    name: graylog
